@@ -145,7 +145,7 @@ input.invalid,select.invalid{border-color:#d22e62;background:#fff9fb}
    </div>
   </div>
   <div class="header-actions">
-   <button class="action-btn faq-btn" id="openFaq" type="button"><span>▤</span><span class="faq-label">Syarat Penerima BSU</span></button>
+   <a class="action-btn faq-btn" id="openFaq" href="./FAQ%20BSU%202026.pdf" target="_blank" rel="noopener noreferrer" aria-label="Buka file PDF Syarat Penerima BSU 2026"><span>▤</span><span class="faq-label">Syarat Penerima BSU</span></a>
    <button class="action-btn" id="openKpjTutorial" type="button" aria-label="Buka Tutorial Cek No KPJ">▶ <span class="faq-label">Tutorial Cek No KPJ</span></button>
    <a class="action-btn menu-btn" href="https://bsu.kemnaker.go.id/" target="_blank" rel="noopener noreferrer" aria-label="Buka Cek Status BSU di website Kemnaker RI">↗ <span class="faq-label">Cek Status BSU</span></a>
   </div>
@@ -294,14 +294,14 @@ function showModal(id){$(id).classList.add("show");document.body.style.overflow=
 function hideModal(id){
  $(id).classList.remove("show");
  if(id==="kpjBackdrop")$("kpjVideo").pause();
- const ids=["reviewBackdrop","faqBackdrop","successBackdrop","kpjBackdrop"];
+ const ids=["reviewBackdrop","successBackdrop","kpjBackdrop"];
  if(!ids.some(x=>$(x).classList.contains("show")))document.body.style.overflow="";
 }
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>hideModal(b.dataset.close)));
-["reviewBackdrop","faqBackdrop","kpjBackdrop"].forEach(id=>$(id).addEventListener("click",e=>{if(e.target===$(id))hideModal(id)}));
-document.addEventListener("keydown",e=>{if(e.key==="Escape")["reviewBackdrop","faqBackdrop","successBackdrop","kpjBackdrop"].forEach(hideModal)});
+["reviewBackdrop","kpjBackdrop"].forEach(id=>$(id).addEventListener("click",e=>{if(e.target===$(id))hideModal(id)}));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")["reviewBackdrop","successBackdrop","kpjBackdrop"].forEach(hideModal)});
 
-$("openFaq").addEventListener("click",()=>showModal("faqBackdrop"));
+
 $("openKpjTutorial").addEventListener("click",()=>showModal("kpjBackdrop"));
 $("returnHome").addEventListener("click",()=>{
  hideModal("successBackdrop");
