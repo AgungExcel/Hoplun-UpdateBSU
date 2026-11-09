@@ -13,15 +13,17 @@
 :root{--pink:#e63878;--pink-dark:#c52866;--rose:#fff0f5;--ink:#182238;--muted:#7e8798;--line:#e7eaf1;--bg:#f6f7fb;--navy:#203b64;--green:#137a53}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(ellipse at 10% 0%,#fbe7ee 0,transparent 31%),linear-gradient(180deg,#fbfbfe,#f2f4f9);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+body{margin:0;background:radial-gradient(ellipse at 10% 0%,#fbe7ee 0,transparent 31%),linear-gradient(180deg,#fbfbfe,#f2f4f9);font-family:"Aptos","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
 button,input,select{font:inherit}
 .topline{height:5px;background:linear-gradient(90deg,#f6b5ca,var(--pink),#f6b5ca)}
 .shell{width:min(100% - 32px,1050px);margin:24px auto 42px}
-.header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 18px;background:#ffffffd9;border:1px solid #fff;border-radius:20px;box-shadow:0 9px 28px #24324a0b;backdrop-filter:blur(12px)}
+.header{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;background:linear-gradient(112deg,#b92560 0%,#df3474 55%,#f18db0 100%);border:1px solid #f6a9c2;border-radius:22px;box-shadow:0 14px 34px #c52c6a2b;color:#fff}
+.header:before{content:"BSU 2026";position:absolute;z-index:-1;right:18px;bottom:-20px;color:#ffffff20;font-size:clamp(52px,8vw,88px);font-weight:950;letter-spacing:-.075em;line-height:1;filter:blur(.6px);pointer-events:none}
+.header:after{content:"";position:absolute;z-index:-1;width:230px;height:230px;right:80px;top:-155px;border:1px solid #ffffff25;border-radius:50%;box-shadow:0 0 0 22px #ffffff0b,0 0 0 45px #ffffff08;pointer-events:none}
 .brand{display:flex;align-items:center;gap:14px;min-width:0}
-.brand-logo{width:62px;height:62px;object-fit:cover;border-radius:17px;box-shadow:0 6px 18px #7f31501c;flex:none}
-.brand-title{font-size:clamp(15px,2.3vw,21px);line-height:1.25;font-weight:900;letter-spacing:-.025em;margin:0;max-width:630px}
-.brand-sub{font-size:11px;color:var(--muted);margin-top:5px}
+.brand-logo{width:62px;height:62px;object-fit:cover;border-radius:17px;box-shadow:0 6px 18px #7f31501c;flex:none;border:1px solid #ffffff75}
+.brand-title{font-size:clamp(15px,2.3vw,21px);line-height:1.3;font-weight:800;letter-spacing:-.02em;margin:0;max-width:650px;color:#fff}
+.brand-sub{font-size:11px;color:#ffedf3;margin-top:6px;line-height:1.55;max-width:700px}
 .header-actions{display:flex;align-items:center;gap:9px;flex:none}
 .action-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 14px;border-radius:12px;border:1px solid #f0c7d7;background:#fff;color:var(--pink-dark);font-size:11px;font-weight:850;cursor:pointer;text-decoration:none;white-space:nowrap;transition:.18s}
 .action-btn:hover{background:#fff5f9;transform:translateY(-1px)}
@@ -46,9 +48,9 @@ button,input,select{font:inherit}
 .section-title p{margin:4px 0 0;color:var(--muted);font-size:11px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 22px}
 .field{min-width:0}
-label{display:block;margin:0 0 8px;font-size:12px;font-weight:800;color:#344056}
+label{display:block;margin:0 0 8px;font-size:12px;font-weight:650;color:#344056;letter-spacing:.01em}
 .req{color:var(--pink)}
-input,select{width:100%;height:49px;padding:0 14px;border:1px solid #dfe3eb;border-radius:12px;background:#fff;color:#263149;font-size:13px;outline:none;transition:.17s}
+input,select{width:100%;height:49px;padding:0 14px;border:1px solid #dfe3eb;border-radius:12px;background:#fff;color:#263149;font-size:13px;outline:none;transition:.17s;font-family:"Aptos","Segoe UI",Roboto,Arial,sans-serif}
 input::placeholder{color:#a2aaba}
 input:focus,select:focus{border-color:var(--pink);box-shadow:0 0 0 4px #e6387815}
 input.invalid,select.invalid{border-color:#d22e62;background:#fff9fb}
@@ -89,9 +91,10 @@ input.invalid,select.invalid{border-color:#d22e62;background:#fff9fb}
 .toast.error{background:#fff0f2;color:#a32245;border:1px solid #f3cbd3}
 @media(max-width:650px){
  .shell{width:min(100% - 18px,1050px);margin:10px auto 25px}
- .header{padding:11px 12px;border-radius:16px;gap:9px}
+ .header{padding:12px 12px;border-radius:16px;gap:9px}
+ .header:before{font-size:42px;right:8px;bottom:-7px}
  .brand{gap:9px}.brand-logo{width:46px;height:46px;border-radius:12px}
- .brand-title{font-size:12px;max-width:230px}.brand-sub{font-size:9px;margin-top:3px}
+ .brand-title{font-size:12px;max-width:230px}.brand-sub{font-size:9px;margin-top:4px;max-width:240px}
  .header-actions{gap:6px}.action-btn{min-height:37px;padding:0 9px;font-size:9px;border-radius:10px}
  .faq-btn .faq-label{display:none}
  .menu-panel{width:245px}
@@ -130,7 +133,7 @@ input.invalid,select.invalid{border-color:#d22e62;background:#fff9fb}
   </div>
  </header>
 
- <section class="hero" aria-label="Pengkinian Data BSU 2026"></section>
+ <!-- Judul dan identitas aplikasi sudah menyatu pada header utama. -->
 
  <div class="flow" aria-label="Alur pengisian">
   <span class="flow-step"><span class="flow-num">01</span> Isi data</span><span class="flow-line"></span>
@@ -200,7 +203,14 @@ const SCRIPT_URL="https://script.google.com/macros/s/AKfycbym2tQUPfXC_g14oTPWJ92
 const fields=[["datetime","Tanggal & Waktu Input"],["noid","NO ID"],["nama","Nama Lengkap"],["nik","NIK"],["kpj","NO KPJ"],["bank","Nama Bank"],["rekening","Nomor Rekening"],["namarek","Nama di Rekening"],["hp","Nomor HP"]];
 const $=id=>document.getElementById(id);let pending=false;
 function jakartaTime(){return new Intl.DateTimeFormat("sv-SE",{timeZone:"Asia/Jakarta",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).format(new Date()).replace(" ","T")}
-["nik","rekening","hp"].forEach(id=>$(id).addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"");if(id==="nik")e.target.value=e.target.value.slice(0,16);if(id==="hp")e.target.value=e.target.value.slice(0,13)}));
+["nik","rekening"].forEach(id=>$(id).addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"");if(id==="nik")e.target.value=e.target.value.slice(0,16)}));
+$("hp").addEventListener("input",e=>{
+ let raw=e.target.value.trim();
+ // Nomor dengan kode negara +62 atau 62 otomatis diubah ke format lokal 0.
+ if(raw.startsWith("+62")) raw="0"+raw.slice(3);
+ else if(raw.startsWith("62")) raw="0"+raw.slice(2);
+ e.target.value=raw.replace(/\D/g,"").slice(0,13);
+});
 $("noid").addEventListener("input",e=>{
  const raw=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,"");
  let clean="";
